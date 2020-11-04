@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Music Player Sync</title>
+    <title>Formation Musicale - Enregistrements audio</title>
     <style>
       * {
         margin: 0;
@@ -23,8 +23,19 @@
         margin: 30px;
       }
 
+      h2 {
+        margin: 5px;
+      }
+
+      a {
+        text-decoration: none;
+        font-style: italic;
+      }
+
       #audio-player {
         margin: 10px;
+        width: 75%;
+        outline: none;
       }
 
       #playlist {
@@ -59,20 +70,24 @@
     ></audio>
 
     <div id="playlist">
-      <h2>Playlist</h2>
+      <h2>Enregistrements audio</h2>
       <ol id="track-list">
         <li>
           <a href="#" data-idx="0" class="music">
-            <dd>Grieg - Dans arabe</dd>
+            <dd>1C1 - Grieg, Dance arabe</dd>
           </a>
         </li>
         <li>
           <a href="#" data-idx="1" class="music">
-            <dd>Mahler - Symphonie n°1, 3ème mouvement</dd>
+            <dd>1C2 - Mahler, Symphonie n°1, 3ème mouvement</dd>
           </a>
         </li>
       </ol>
     </div>
+
+    <footer>
+      <a>@Maxime Joly</a>
+    </footer>
 
     <script src="/main.js"></script>
     <script src="/socket.io/socket.io.js"></script>
