@@ -1,0 +1,19 @@
+{
+  "name": "music-player-sync",
+  "version": "1.0.0",
+  "description": "A music player sync",
+  "author": "mxjoly <maxime.joly2808@gmail.com>",
+  "license": "MIT",
+  "main": "index.js",
+  "repository": "git+https://github.com/mxjoly/music-player-sync.git",
+  "bugs": "https://github.com/mxjoly/music-player-sync/issues",
+  "homepage": "https://github.com/mxjoly/music-player-sync#readme",
+  "scripts": {
+    "start": "node .",
+    "build": ""
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "socket.io": "^2.3.0"
+  }
+}
