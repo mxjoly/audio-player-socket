@@ -3,7 +3,6 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" type="text/css" href="player.css" />
     <title>Music Player Sync</title>
     <style>
       * {
@@ -82,8 +81,7 @@
       var player = document.querySelector('#audio-player');
 
       socket.on('play', (data) => {
-        if (data.src === player.currentSrc) {
-        } else {
+        if (data.src !== player.currentSrc) {
           player.src = data.src;
         }
         if (player.currentTime !== data.time) {
@@ -96,7 +94,9 @@
         if (player.currentTime !== data.time) {
           player.currentTime = data.time;
         }
-        player.pause();
+        if (player.paused === false) {
+          player.pause();
+        }
       });
 
       socket.on('change', (data) => {
@@ -106,10 +106,12 @@
       });
 
       function emitEvent(event, control) {
-        return socket.emit(event, {
-          src: control.src,
-          time: control.currentTime,
-        });
+        if (window.location.search.includes('?admin=true')) {
+          return socket.emit(event, {
+            src: control.src,
+            time: control.currentTime,
+          });
+        }
       }
 
       function start(control) {
