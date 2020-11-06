@@ -17,6 +17,7 @@
   transition: background-color ease-in 300ms;
   outline: none;
   user-select: none;
+  text-align: left;
 
   &_selected {
     background-color: darken(#3386e6, 15);

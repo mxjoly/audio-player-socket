@@ -39,7 +39,7 @@ module.exports = () => {
   const raw = {
     PORT: process.env.PORT || 8500,
     NODE_ENV: process.env.NODE_ENV || 'development',
-    HOST: `https://music-player-sync.herokuapp.com`,
+    HOST: process.env.HOST || `http://localhost:${process.env.PORT || 8500}`,
   };
 
   // Stringify all values so we can feed into Webpack DefinePlugin
