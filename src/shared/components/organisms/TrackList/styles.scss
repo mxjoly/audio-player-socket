@@ -1,0 +1,17 @@
+@use "../../../theme";
+
+.TrackList {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+
+  position: relative;
+  width: 100%;
+  height: 76%;
+  overflow: scroll;
+
+  li {
+    width: 100%;
+  }
+}

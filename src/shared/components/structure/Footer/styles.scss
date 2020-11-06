@@ -1,0 +1,24 @@
+@use '../../../theme';
+
+.Footer {
+  position: absolute;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: inherit;
+  height: theme.$footer-height;
+  background-color: theme.$background-dark-color;
+
+  &__Text {
+    color: theme.$text-light-color;
+    font-weight: 400;
+    font-style: italic;
+  }
+
+  &__Author {
+    color: theme.$primary-color;
+    font-weight: 600;
+    font-size: 1.2em;
+  }
+}

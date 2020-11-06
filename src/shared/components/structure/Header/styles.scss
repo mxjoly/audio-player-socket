@@ -1,0 +1,19 @@
+@use '../../../theme';
+
+.Header {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: inherit;
+  height: theme.$top-bar-height;
+  background-color: theme.$background-dark-color;
+  box-sizing: border-box;
+  padding: 0px 15px;
+
+  h1 {
+    color: theme.$primary-color;
+    font-size: 1.5em;
+    font-weight: 500;
+  }
+}

@@ -1,19 +1,85 @@
 {
   "name": "music-player-sync",
-  "version": "1.0.0",
-  "description": "A music player sync",
-  "author": "mxjoly <maxime.joly2808@gmail.com>",
-  "license": "MIT",
-  "main": "index.js",
-  "repository": "git+https://github.com/mxjoly/music-player-sync.git",
-  "bugs": "https://github.com/mxjoly/music-player-sync/issues",
-  "homepage": "https://github.com/mxjoly/music-player-sync#readme",
+  "version": "0.1.0",
+  "private": true,
   "scripts": {
-    "start": "node .",
-    "build": ""
+    "dev": "NODE_ENV=development webpack serve --config config/webpack/client.config.js",
+    "start": "node build/server.js",
+    "build": "rimraf build/** && NODE_ENV=production webpack --config config/webpack"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   },
   "dependencies": {
+    "axios": "^0.21.0",
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
     "express": "^4.17.1",
-    "socket.io": "^2.3.0"
+    "lodash": "^4.17.20",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "react-helmet-async": "^1.0.7",
+    "react-icons": "^3.11.0",
+    "react-router-dom": "^5.2.0",
+    "react-slider": "^1.1.1",
+    "socket.io": "^3.0.0",
+    "socket.io-client": "^3.0.0",
+    "typescript": "^4.0.3",
+    "web-vitals": "^0.2.4"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.12.3",
+    "@babel/preset-env": "^7.12.1",
+    "@babel/preset-react": "^7.12.5",
+    "@babel/preset-typescript": "^7.12.1",
+    "@types/cors": "^2.8.8",
+    "@types/express": "^4.17.8",
+    "@types/lodash": "^4.14.164",
+    "@types/node": "^14.14.6",
+    "@types/react": "^16.9.55",
+    "@types/react-dom": "^16.9.9",
+    "@types/react-router": "^5.1.8",
+    "@types/react-router-dom": "^5.1.6",
+    "@types/react-slider": "^1.0.0",
+    "@types/webpack-env": "^1.15.3",
+    "autoprefixer": "^10.0.1",
+    "babel-loader": "^8.1.0",
+    "case-sensitive-paths-webpack-plugin": "^2.3.0",
+    "copy-webpack-plugin": "^6.3.0",
+    "core-js": "^3.6.5",
+    "css-loader": "^5.0.0",
+    "file-loader": "^6.2.0",
+    "html-webpack-plugin": "^4.5.0",
+    "mini-css-extract-plugin": "^1.2.1",
+    "optimize-css-assets-webpack-plugin": "^5.0.4",
+    "postcss": "^8.1.4",
+    "postcss-import": "^13.0.0",
+    "postcss-loader": "^4.0.4",
+    "regenerator-runtime": "^0.13.7",
+    "rimraf": "^3.0.2",
+    "sass": "^1.28.0",
+    "sass-loader": "^10.0.5",
+    "url-loader": "^4.1.1",
+    "webpack": "^5.4.0",
+    "webpack-assets-manifest": "^3.1.1",
+    "webpack-cli": "^4.1.0",
+    "webpack-dev-server": "^3.11.0",
+    "webpack-node-externals": "^2.5.2"
   }
 }
