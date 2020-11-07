@@ -15,9 +15,10 @@
   background-color: #3386e6;
   border-radius: 10px;
   transition: background-color ease-in 300ms;
+  text-align: left;
   outline: none;
   user-select: none;
-  text-align: left;
+  -webkit-tap-highlight-color: transparent;
 
   &_selected {
     background-color: darken(#3386e6, 15);

@@ -59,6 +59,9 @@
       height: 30px;
       color: white;
       background-color: transparent;
+      outline: none;
+      user-select: none;
+      -webkit-tap-highlight-color: transparent;
     }
   }
 
