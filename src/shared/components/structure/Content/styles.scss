@@ -1,0 +1,6 @@
+@use '../../../theme';
+
+.Content {
+  min-height: calc(100vh - #{theme.$top-bar-height});
+  margin-bottom: calc(-#{theme.$footer-height});
+}

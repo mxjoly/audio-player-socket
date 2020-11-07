@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Socket } from 'socket.io';
+import { IconContext } from 'react-icons';
+import { MdSync, MdSyncDisabled, MdSyncProblem } from 'react-icons/md';
 import './styles.scss';
 
 import ProgressBar from '../../atoms/ProgressBar';
@@ -18,6 +20,7 @@ const TRACK_LOCATION = '/assets/musics/';
 const IS_ADMIN = window.location.search.includes('?admin=true');
 
 function MediaPlayer(props: { sources: string[]; socket: Socket }) {
+  const [synchronized, setSynchronized] = useState(false);
   const [trackList, setTrackList] = useState<Track[]>([]);
   const [currentTime, setCurrentTime] = useState(0); // In s
   const [currentTrack, setCurrentTrack] = useState<Track | null>(null);
@@ -41,27 +44,39 @@ function MediaPlayer(props: { sources: string[]; socket: Socket }) {
         }
       }
 
+      if (!synchronized) return;
+
       props.socket.on('play', handlePlay);
 
       return () => {
         props.socket.off('play', handlePlay);
       };
-    }, [loaded, trackList, audio, currentTrack, props.socket]);
+    }, [
+      synchronized,
+      loaded,
+      trackList,
+      audio,
+      currentTrack,
+      played,
+      props.socket,
+    ]);
 
     useEffect(() => {
-      function handlePause({ id, time }: any) {
+      function handlePause() {
         if (audio && played) {
           stopAudio();
           setPlayed(false);
         }
       }
 
+      if (!synchronized) return;
+
       props.socket.on('pause', handlePause);
 
       return () => {
         props.socket.off('pause', handlePause);
       };
-    }, [audio, played, props.socket]);
+    }, [synchronized, audio, played, props.socket]);
 
     useEffect(() => {
       function handleChange({ id, time, played: adminPlayed }: any) {
@@ -77,12 +92,14 @@ function MediaPlayer(props: { sources: string[]; socket: Socket }) {
         }
       }
 
+      if (!synchronized) return;
+
       props.socket.on('change', handleChange);
 
       return () => {
         props.socket.off('change', handleChange);
       };
-    }, [audio, played, props.socket]);
+    }, [synchronized, audio, played, props.socket]);
   }
 
   function loadTracks(names: string[]) {
@@ -163,6 +180,10 @@ function MediaPlayer(props: { sources: string[]; socket: Socket }) {
           });
         }
       } else {
+        if (audio.currentTime !== time) {
+          audio.currentTime = time;
+          setCurrentTime(time);
+        }
         audio.play();
         setPlayed(true);
         if (IS_ADMIN) {
@@ -227,6 +248,22 @@ function MediaPlayer(props: { sources: string[]; socket: Socket }) {
 
   return (
     <div className="MediaPlayer">
+      <div className="MediaPlayer__Header">
+        <h2>Music Player</h2>
+        <div className="MediaPlayer__Sync">
+          <div className="MediaPlayer__Sync__State">
+            {synchronized
+              ? 'synchronisation activée'
+              : 'synchronisation désactivée'}
+          </div>
+          <button
+            className="MediaPlayer__Sync__Button"
+            onClick={() => setSynchronized(!synchronized)}
+          >
+            {synchronized ? <MdSync size={30} /> : <MdSyncDisabled size={30} />}
+          </button>
+        </div>
+      </div>
       <div className="MediaPlayer__Content">
         <div className="MediaPlayer__Track">
           <div className="MediaPlayer__Track__Timer">

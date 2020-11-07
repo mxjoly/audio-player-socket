@@ -5,6 +5,7 @@ import axios from 'axios';
 import './App.scss';
 
 import Header from './components/structure/Header';
+import Content from './components/structure/Content';
 import Footer from './components/structure/Footer';
 import MediaPlayer from './components/organisms/MediaPlayer';
 
@@ -55,7 +56,9 @@ function App() {
         />
       </Helmet>
       <Header />
-      <MediaPlayer sources={sources} socket={socket} />
+      <Content>
+        <MediaPlayer sources={sources} socket={socket} />
+      </Content>
       <Footer />
     </div>
   );

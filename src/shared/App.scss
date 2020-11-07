@@ -1,3 +1,5 @@
+@use './theme';
+
 .App {
   display: flex;
   flex-direction: column;
@@ -5,7 +7,9 @@
   align-items: center;
 
   width: 100vw;
-  height: 100vh;
+  height: auto;
+  margin-bottom: calc(-#{theme.$footer-height});
+
   text-align: center;
-  overflow: hidden;
+  overflow-x: hidden;
 }
