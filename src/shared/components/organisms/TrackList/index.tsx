@@ -6,13 +6,11 @@ import './styles.scss';
 type TrackType = {
   id: string | number;
   title: string;
-  duration: number;
   url: string;
 };
 
 type Props = {
   tracks: TrackType[];
-  played: boolean;
   selected: TrackType | null;
   onSelect: (track: TrackType) => void;
 };
@@ -31,8 +29,6 @@ function TrackList(props: Props) {
             <Track
               id={track.id}
               title={track.title}
-              duration={track.duration}
-              played={track.id === props.selected?.id && props.played}
               selected={track.id === props.selected?.id}
               onSelect={onSelectTrack}
             />
@@ -47,16 +43,13 @@ TrackList.propTypes = {
     PropTypes.shape({
       id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
       title: PropTypes.string.isRequired,
-      duration: PropTypes.number.isRequired,
       url: PropTypes.string.isRequired,
     }).isRequired
   ).isRequired,
   onSelect: PropTypes.func.isRequired,
-  played: PropTypes.bool.isRequired,
   selected: PropTypes.shape({
     id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
     title: PropTypes.string.isRequired,
-    duration: PropTypes.number.isRequired,
     url: PropTypes.string.isRequired,
   }),
 };
@@ -65,4 +58,4 @@ TrackList.defaultProps = {
   list: [],
 };
 
-export default TrackList;
+export default React.memo(TrackList);

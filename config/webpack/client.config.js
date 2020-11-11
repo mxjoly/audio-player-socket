@@ -42,6 +42,7 @@ const config = {
     port: process.env.PORT || 8500,
     overlay: true,
     open: true,
+    historyApiFallback: true, // needed for react-router
   },
   plugins: [...plugins.shared, ...plugins.client],
   performance: {

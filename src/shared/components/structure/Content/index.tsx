@@ -1,13 +1,33 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Redirect,
+} from 'react-router-dom';
 import './styles.scss';
 
-function Content(props: any) {
-  return <div className="Content">{props.children}</div>;
-}
+const Home = React.lazy(() => import('../../../pages/Home/Home'));
+const Room = React.lazy(() => import('../../../pages/Room'));
 
-Content.propTypes = {
-  children: PropTypes.element.isRequired,
-};
+function Content() {
+  return (
+    <div className="Content">
+      <Router>
+        <Switch>
+          <Route path="/" exact>
+            <Home />
+          </Route>
+          <Route path="/room/:roomId">
+            <Room />
+          </Route>
+          <Route path="/">
+            <Redirect to="/" />
+          </Route>
+        </Switch>
+      </Router>
+    </div>
+  );
+}
 
 export default Content;

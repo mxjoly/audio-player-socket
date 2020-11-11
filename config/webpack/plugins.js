@@ -4,7 +4,6 @@ const webpack = require('webpack');
 const AssetsManifestPlugin = require('webpack-assets-manifest');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin');
-const CopyPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const envBuilder = require('../env');
@@ -58,15 +57,6 @@ const client = [
   }),
   // Generate Chrome profile file which includes timings of plugins execution.
   isProfilerEnabled() && new webpack.debug.ProfilingPlugin(),
-  // Copy the public folder to the client build
-  new CopyPlugin({
-    patterns: [
-      {
-        from: paths.musics,
-        to: path.join(paths.clientBuild, paths.publicAssets, 'musics'),
-      },
-    ],
-  }),
 ].filter(Boolean);
 
 const server = [

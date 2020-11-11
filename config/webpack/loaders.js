@@ -33,9 +33,6 @@ const cssLoaderClient = {
   use: [
     {
       loader: MiniCssExtractPlugin.loader,
-      options: {
-        hmr: isDev,
-      },
     },
     {
       loader: require.resolve('css-loader'),
@@ -55,9 +52,6 @@ const sassLoaderClient = {
   use: [
     {
       loader: MiniCssExtractPlugin.loader,
-      options: {
-        hmr: isDev,
-      },
     },
     {
       loader: require.resolve('css-loader'),

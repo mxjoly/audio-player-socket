@@ -1,22 +1,36 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
+import { transitions, positions, Provider as AlertProvider } from 'react-alert';
 
 import App from '../shared/App';
-import './index.scss';
+import './_reset.scss';
+import { SocketProvider } from './socket';
+import alertTemplate from './alert';
 import reportWebVitals from './reportWebVitals';
 
 const render = module.hot ? ReactDOM.render : ReactDOM.hydrate;
 
 render(
-  <React.StrictMode>
-    <BrowserRouter>
-      <HelmetProvider>
-        <App />
-      </HelmetProvider>
-    </BrowserRouter>
-  </React.StrictMode>,
+  <Suspense fallback={null}>
+    <React.StrictMode>
+      <BrowserRouter>
+        <HelmetProvider>
+          <SocketProvider>
+            <AlertProvider
+              template={alertTemplate}
+              position={positions.BOTTOM_CENTER}
+              transition={transitions.FADE}
+              timeout={5000}
+            >
+              <App />
+            </AlertProvider>
+          </SocketProvider>
+        </HelmetProvider>
+      </BrowserRouter>
+    </React.StrictMode>
+  </Suspense>,
   document.getElementById('app')
 );
 

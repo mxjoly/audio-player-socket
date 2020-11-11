@@ -7,3 +7,10 @@ declare namespace NodeJS {
     HOST: string;
   }
 }
+
+declare namespace Express {
+  interface Request {
+    token: any;
+    files: any;
+  }
+}

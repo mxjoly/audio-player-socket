@@ -14,9 +14,8 @@ const paths = {
   srcServer: resolveApp('src/server'),
   srcShared: resolveApp('src/shared'),
   favicon: resolveApp('src/shared/assets/logo.png'),
-  musics: resolveApp('music'),
   publicPath: '/',
-  publicAssets: 'assets/',
+  publicAssets: 'assets',
 };
 
 paths.resolveModules = [

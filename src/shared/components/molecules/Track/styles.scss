@@ -21,28 +21,17 @@
   -webkit-tap-highlight-color: transparent;
 
   &_selected {
-    background-color: darken(#3386e6, 15);
+    background-color: theme.$primary-color;
   }
 
-  &__Panel {
-    display: flex;
-    flex-direction: row;
-    justify-items: center;
-    align-items: center;
-    flex-wrap: nowrap;
-  }
-
-  &__Button {
+  &__Icon {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 40px;
-    height: 40px;
-    padding: 2px;
+    width: 35px;
+    height: 35px;
+    padding: 4px;
     color: white;
-
-    &:hover {
-    }
   }
 
   &__Title {
@@ -51,11 +40,5 @@
     font-style: italic;
     color: white;
     margin-left: 10px;
-  }
-
-  &__Duration {
-    font-weight: 400;
-    font-size: 1.1em;
-    color: white;
   }
 }

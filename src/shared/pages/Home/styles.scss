@@ -1,0 +1,36 @@
+@use '../../theme';
+
+.Home {
+  h3 {
+    margin-top: 40px;
+    margin-bottom: 10px;
+  }
+
+  .Form {
+    width: 100%;
+    word-wrap: none;
+    text-align: center;
+
+    &__Files {
+      padding: 20px;
+
+      &__Item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-family: 'Avenir', sans-serif;
+        font-style: italic;
+        font-size: 1em;
+        margin-top: 15px;
+      }
+
+      &__Button {
+        color: black;
+        width: 1em;
+        height: 1em;
+        margin-left: 10px;
+        cursor: pointer;
+      }
+    }
+  }
+}

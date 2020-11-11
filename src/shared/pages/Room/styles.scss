@@ -1,0 +1,41 @@
+@use '../../theme';
+
+.Room {
+  &__Admin {
+    margin-top: 10px;
+    font-style: italic;
+    font-weight: 400;
+    color: black;
+  }
+
+  &__Share {
+    font-size: 1em;
+    font-weight: 500;
+    color: white;
+    background-color: #323232;
+    border-radius: 3px;
+    margin-top: 20px;
+    margin-bottom: 100px;
+    padding: 7px;
+    cursor: pointer;
+    transition: background-color 300ms ease-in-out;
+
+    &:hover {
+      background-color: theme.$primary-color;
+      top: 1px;
+    }
+  }
+
+  &__Users {
+    width: 100%;
+    text-align: center;
+
+    li {
+      padding: 5px;
+      font-style: italic;
+      font-weight: 400;
+      font-size: 1em;
+      color: #565656;
+    }
+  }
+}

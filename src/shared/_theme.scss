@@ -1,3 +1,7 @@
+// ======================================================================== //
+//                             DEFAULT CONSTANTS                            //
+// ======================================================================== //
+
 // Colors
 $primary-color: #ee4437;
 $secondary-color: #252e55;
@@ -9,3 +13,161 @@ $text-dark-color: #252e55;
 // Numbers
 $top-bar-height: 10vh;
 $footer-height: 10vh;
+
+// ======================================================================== //
+//                             DEFAULT CLASSES                              //
+// ======================================================================== //
+
+.PageContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  max-width: 500px;
+  margin: auto;
+  padding-bottom: $footer-height;
+
+  @media (max-width: 640px) {
+    box-sizing: border-box;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+// ======================================================================== //
+//                             DEFAULT STYLES                               //
+// ======================================================================== //
+h1 {
+  font-size: 1.7em;
+  font-weight: 500;
+  font-style: normal;
+}
+
+h2 {
+  font-size: 1.5em;
+  font-weight: 500;
+  font-style: normal;
+}
+
+h3 {
+  font-size: 1.3em;
+  font-weight: 500;
+  font-style: normal;
+}
+
+h4 {
+  font-size: 1.3em;
+  font-weight: 400;
+  font-style: normal;
+}
+
+hr {
+  width: 100%;
+  height: 1px;
+  background-color: black;
+  margin: 30px auto;
+}
+
+label {
+  font-size: 1.3em;
+  font-weight: 500;
+  font-style: normal;
+}
+
+form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin: auto;
+}
+
+input {
+  width: 100%;
+  background-color: transparent;
+  font-size: 1em;
+  text-align: center;
+  margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  outline: none;
+  user-select: none;
+}
+
+input[type='file'] {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: auto;
+}
+
+input[type='text'] {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  box-sizing: border-box;
+  height: 20px;
+  padding: 20px;
+
+  font-size: 1.3em;
+
+  border-top: none;
+  border-right: none;
+  border-left: none;
+  border-bottom: 2px solid $secondary-color;
+
+  &:focus {
+    border-bottom: solid 2px $primary-color;
+  }
+
+  &::placeholder {
+    color: #ababab;
+  }
+
+  // Disable autocomplete blue background on chrome
+  &:-webkit-autofill,
+  &:-webkit-autofill:hover,
+  &:-webkit-autofill:focus,
+  &:-webkit-autofill:active {
+    box-shadow: 0 0 0 30px white inset !important;
+    -webkit-box-shadow: 0 0 0 30px white inset !important;
+  }
+}
+
+input[type='submit'] {
+  display: inline-block;
+  width: 100%;
+  padding: 0.5em 1em 0.55em;
+  margin: 30px auto;
+  color: white;
+  border-radius: 0.5em;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
+  background: rgb(12, 30, 76);
+  background: linear-gradient(
+    0deg,
+    rgba(12, 30, 76, 1) 0%,
+    rgba(74, 90, 158, 1) 100%
+  );
+  cursor: pointer;
+
+  &:hover {
+    background-color: transparent;
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  &:active {
+    position: relative;
+    top: 1px;
+  }
+}

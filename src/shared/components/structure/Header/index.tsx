@@ -1,16 +1,23 @@
 import React from 'react';
 import { MdMusicNote } from 'react-icons/md';
+import { useHistory } from 'react-router-dom';
 import './styles.scss';
 
 function Header() {
+  const history = useHistory();
   return (
     <header className="Header">
-      <h1>
+      <h1
+        onClick={() => {
+          history.push('/');
+          document.location.reload();
+        }}
+      >
         <MdMusicNote />
-        Formation Musicale
+        Music Player
       </h1>
     </header>
   );
 }
 
-export default Header;
+export default React.memo(Header);

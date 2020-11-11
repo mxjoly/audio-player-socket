@@ -1,0 +1,83 @@
+@use "../../../theme";
+
+// https://www.npmjs.com/package/react-h5-audio-player#sass-variables
+@use 'react-h5-audio-player/src/styles' with (
+  $rhap_theme-color: theme.$primary-color, // Color of all buttons and volume/progress indicators
+  $rhap_background-color: transparent, // Color of the player background
+  $rhap_bar-color: #e4e4e4, // Color of volume and progress bar
+  $rhap_time-color: #ddd, // Font color of current time and duration
+  $rhap_font-family: 'Avenir', // Font family of current time and duration
+);
+
+.AudioControl {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  position: relative;
+  max-width: 100vw;
+  min-width: 300px;
+
+  @media screen and (max-width: 640px) {
+    width: 90vw;
+    height: auto;
+  }
+
+  @media screen and (min-width: 641px) {
+    width: 100%;
+    height: auto;
+  }
+
+  box-sizing: border-box;
+  border-radius: 20px;
+  padding: 30px;
+  margin: 50px auto 30px auto;
+  background-color: theme.$background-dark-color;
+
+  h4 {
+    flex: 1;
+    font-style: italic;
+    color: white;
+    @media (max-width: 640px) {
+      flex: 5;
+    }
+  }
+
+  &__Header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+  }
+
+  &__Sync {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+    &__State {
+      margin-right: 5px;
+      font-style: italic;
+      font-weight: 300;
+      color: white;
+    }
+
+    &__Button {
+      width: 30px;
+      height: 30px;
+      color: white;
+      background-color: transparent;
+      outline: none;
+      user-select: none;
+    }
+  }
+
+  &__Content {
+    width: 95%;
+    height: inherit;
+  }
+}
