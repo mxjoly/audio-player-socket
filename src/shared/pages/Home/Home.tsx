@@ -112,7 +112,7 @@ function Home() {
           placeholder="Votre nom d'utilisateur"
           maxLength={30}
           required
-          pattern="\w{6,30}"
+          pattern="[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]+"
           onChange={(event) => setRoomAdmin(event.target.value)}
         />
 
@@ -124,7 +124,7 @@ function Home() {
           accept="audio/*"
         />
         <ul className="Form__Files">
-          {[...filesToUpload].map((file, i) => (
+          {Array.from(filesToUpload).map((file, i) => (
             <li className="Form__Files__Item" key={`file-${i}`}>
               {file.name}
               <IconContext.Provider

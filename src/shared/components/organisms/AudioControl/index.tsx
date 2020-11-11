@@ -41,7 +41,7 @@ function AudioControl(props: { musics: Music[]; isAdmin: boolean }) {
   useEffect(() => {
     loadTracks(props.musics);
     setLoaded(true);
-  }, []);
+  }, [props.musics]);
 
   /**
    * Play an audio with the similar start point

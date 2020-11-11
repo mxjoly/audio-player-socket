@@ -66,7 +66,7 @@ sio.on('connection', (socket: Socket) => {
     if (user) {
       socket.leave(user.room.id);
       user.room.removeUser(user.id);
-      console.log(`${user.name} leaves the room ${user.room}`);
+      console.log(`${user.name} leaves the room ${user.room.id}`);
       socket.to(user.room.id).emit('leave_room', user.room.users);
     }
   });

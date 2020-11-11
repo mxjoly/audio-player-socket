@@ -23,11 +23,13 @@ Use `npm install` (or `yarn install`) to install the dependencies. Then `cd` int
 yarn build && yarn start
 ```
 
-## How it works
+## How it works ?
 
 At the home page, complete the form to create a new room. After submitting this form, your room is created and you could invite some people to it by sharing the link with the button at the bottom of the page. Notive that the person which has created the room is the only one that could synchronize his audio player with the guests. He has also a special url with the id of the room followed by a url parameter `admin` set to `true`. When creating a room, you upload some audio files, that will be saved to the server until the next monday throught this room.
 
 The people who clicked on the shared link will be redirect to a form to choose a username. After that, they join the room. In the room, the current active users has displayed at the bottom with their usernames.
+
+The guests could deactivate the synchronization by pressing on the sync button in the audio player. It will display "Synchronisation désactivée" after that.
 
 ## Link to the web application
 

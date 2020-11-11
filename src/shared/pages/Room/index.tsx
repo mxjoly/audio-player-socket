@@ -129,7 +129,7 @@ function Room() {
           placeholder="Nom d'utilisateur"
           required
           maxLength={30}
-          pattern="/\b([A-ZÀ-ÿ][-,a-z. ']+[ ]*)+/g"
+          pattern="[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]+"
           onChange={(event) => setUsername(event.target.value)}
         />
         <input type="submit" value="Valider" />
