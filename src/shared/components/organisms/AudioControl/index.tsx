@@ -136,7 +136,7 @@ function AudioControl(props: { musics: Music[]; isAdmin: boolean }) {
       audio.currentTime = time;
       setPlayed(true);
       setCurrentTime(time);
-      if (props.isAdmin && socket) {
+      if (props.isAdmin && socket && synchronized) {
         socket.emit('play_audio', {
           trackId: currentTrack.id,
           time,
@@ -156,7 +156,7 @@ function AudioControl(props: { musics: Music[]; isAdmin: boolean }) {
       audio.currentTime = time;
       setPlayed(false);
       setCurrentTime(time);
-      if (props.isAdmin && socket) {
+      if (props.isAdmin && socket && synchronized) {
         socket.emit('pause_audio', {
           trackId: currentTrack.id,
           time,
@@ -173,7 +173,7 @@ function AudioControl(props: { musics: Music[]; isAdmin: boolean }) {
   function changeVolume(newVolume: number) {
     if (audio) {
       audio.volume = newVolume;
-      if (props.isAdmin && socket) {
+      if (props.isAdmin && socket && synchronized) {
         socket.emit('volume_change', { volume: newVolume, roomId });
       }
     }
