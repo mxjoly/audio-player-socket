@@ -18,8 +18,9 @@ nodeSchedule.scheduleJob('0 0 * * 1', () => {
       `${paths.clientBuild}/assets/${roomId}`,
       { recursive: true },
       (err) => {
-        if (err) console.error(`The room ${roomId} cannot be deleted`);
-        else console.error(`The room ${roomId} has been deleted successfully`);
+        if (err) console.error(`The room [${roomId}] cannot be deleted`);
+        else
+          console.error(`The room [${roomId}] has been deleted successfully`);
       }
     );
   });

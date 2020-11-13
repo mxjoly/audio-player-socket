@@ -22,13 +22,14 @@
         font-style: italic;
         font-size: 1em;
         margin-top: 15px;
+        text-align: left;
       }
 
       &__Button {
-        color: black;
-        width: 1em;
-        height: 1em;
+        min-width: 20px;
+        max-width: 20px;
         margin-left: 10px;
+        color: black;
         cursor: pointer;
       }
     }

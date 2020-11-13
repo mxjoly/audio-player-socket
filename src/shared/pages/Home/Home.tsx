@@ -95,6 +95,7 @@ function Home() {
           placeholder="Nom de la salle d'écoute"
           required
           maxLength={50}
+          minLength={1}
           onChange={(event) => setRoomName(event.target.value)}
         />
         <input
@@ -102,6 +103,7 @@ function Home() {
           name="roomSize"
           placeholder="Nombre de participants"
           maxLength={2}
+          minLength={1}
           required
           pattern="[0-5]{1}[0-9]?"
           onChange={(event) => setRoomSize(event.target.value)}
@@ -111,6 +113,7 @@ function Home() {
           name="username"
           placeholder="Votre nom d'utilisateur"
           maxLength={30}
+          minLength={1}
           required
           pattern="[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]+"
           onChange={(event) => setRoomAdmin(event.target.value)}
@@ -130,7 +133,7 @@ function Home() {
               <IconContext.Provider
                 value={{ className: 'Form__Files__Button' }}
               >
-                <MdClose onClick={() => onRemoveFileToUpload(file)} />
+                <MdClose onClick={() => onRemoveFileToUpload(file)} size={20} />
               </IconContext.Provider>
             </li>
           ))}

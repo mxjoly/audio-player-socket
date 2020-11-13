@@ -13,7 +13,7 @@ api.get('/load/:roomId', (req, res) => {
     const room = getRoom(roomId);
     if (room) {
       if (room.size - room.users.length > 0) {
-        console.log(`Load successfully the room ${roomId}`);
+        console.log(`Load successfully the room [${roomId}]`);
         res.status(200).json({
           roomName: room.name,
           roomSize: room.size,
@@ -74,10 +74,10 @@ api.post('/create/:roomId', (req, res) => {
       rooms.push(
         new Room(roomId, roomName, Number(roomSize), roomAdmin, musics)
       );
-      console.log(`A room has been created successfully with the id ${roomId}`);
+      console.log(`The room [${roomId}] has been created successfully`);
       res.status(200).json({ roomName, roomSize, roomAdmin, musics });
     } else {
-      console.log('Cannot create a room without any musics');
+      // Cannot create a room without any musics
       res.sendStatus(400);
     }
   } catch (err) {
@@ -98,12 +98,12 @@ api.post('/delete/:roomId', (req, res) => {
         res.status(400).send(err);
       } else {
         deleteRoom(roomId);
-        console.log(`The room ${roomId} has been deleted successfully`);
+        console.log(`The room [${roomId}] has been deleted successfully`);
         res.sendStatus(200);
       }
     });
   } else {
-    console.log(`The room ${roomId} has been already deleted successfully`);
+    console.log(`The room [${roomId}] has been not found`);
     res.sendStatus(200);
   }
 });

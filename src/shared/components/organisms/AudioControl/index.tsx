@@ -88,12 +88,17 @@ function AudioControl(props: { musics: Music[]; isAdmin: boolean }) {
    * Change the volume
    */
   useEffect(() => {
-    if (!props.isAdmin && socket && synchronized) {
-      socket.on('volume_change', changeVolume);
+    function a(b: any) {
+      console.log(b);
+      changeVolume(b);
     }
 
-    return () => socket.off('volume_change', changeVolume);
-  }, [props.isAdmin, synchronized, socket]);
+    if (!props.isAdmin && socket && synchronized) {
+      socket.on('volume_change', a);
+    }
+
+    return () => socket.off('volume_change', a);
+  }, [props.isAdmin, synchronized, socket, audio]);
 
   // ============================================================ //
 
@@ -121,6 +126,7 @@ function AudioControl(props: { musics: Music[]; isAdmin: boolean }) {
       if (played) pauseAudio();
       audio.src = track.url;
       audio.title = track.title;
+      audio.preload = 'auto';
       setCurrentTrack(track);
       playAudio(time);
     }
@@ -181,7 +187,7 @@ function AudioControl(props: { musics: Music[]; isAdmin: boolean }) {
 
   /**
    * Skip the current to go to the previous track (-1), or the next track (1)
-   * @param a - -1 or 1
+   * @param a -1 or 1
    */
   function skipTrack(a: number) {
     if (currentTrack) {
@@ -214,31 +220,29 @@ function AudioControl(props: { musics: Music[]; isAdmin: boolean }) {
     <div className="AudioControl">
       <div className="AudioControl__Header">
         <h4>{currentTrack?.title}</h4>
-        {!props.isAdmin && (
-          <div className="AudioControl__Sync">
-            {!isMobile && (
-              <div className="AudioControl__Sync__State">
-                {synchronized
-                  ? 'synchronisation activée'
-                  : 'synchronisation désactivée'}
-              </div>
-            )}
-            <button
-              className="AudioControl__Sync__Button"
-              onClick={() => setSynchronized(socket !== null && !synchronized)}
-            >
-              {socket ? (
-                synchronized ? (
-                  <MdSync size={30} />
-                ) : (
-                  <MdSyncDisabled size={30} />
-                )
+        <div className="AudioControl__Sync">
+          {!isMobile && (
+            <div className="AudioControl__Sync__State">
+              {synchronized
+                ? 'synchronisation activée'
+                : 'synchronisation désactivée'}
+            </div>
+          )}
+          <button
+            className="AudioControl__Sync__Button"
+            onClick={() => setSynchronized(socket !== null && !synchronized)}
+          >
+            {socket ? (
+              synchronized ? (
+                <MdSync size={30} />
               ) : (
-                <MdSyncProblem size={30} />
-              )}
-            </button>
-          </div>
-        )}
+                <MdSyncDisabled size={30} />
+              )
+            ) : (
+              <MdSyncProblem size={30} />
+            )}
+          </button>
+        </div>
       </div>
       <div className="AudioControl__Content">
         <AudioPlayer
@@ -249,6 +253,7 @@ function AudioControl(props: { musics: Music[]; isAdmin: boolean }) {
           showDownloadProgress
           showSkipControls={!isMobile}
           listenInterval={500}
+          preload="auto"
           onPlay={() => playAudio()}
           onPause={() => pauseAudio()}
           onEnded={() => setPlayed(false)}

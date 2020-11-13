@@ -31,12 +31,12 @@ sio.on('connection', (socket: Socket) => {
       if (hasFreePlace) {
         socket.join(roomId);
         room.addUser(username, socket.id);
-        console.log(`${username} joins the room ${roomId}`);
+        console.log(`[${username}] joins the room [${roomId}]`);
         // send message including sender
         sio.in(roomId).emit('join_room', room.users);
       } else {
         console.log(
-          `${username} cannot join the room ${roomId} because there is no more place`
+          `[${username}] cannot join the room ${roomId} because there is no more place`
         );
       }
     }
@@ -66,7 +66,7 @@ sio.on('connection', (socket: Socket) => {
     if (user) {
       socket.leave(user.room.id);
       user.room.removeUser(user.id);
-      console.log(`${user.name} leaves the room ${user.room.id}`);
+      console.log(`[${user.name}] leaves the room [${user.room.id}]`);
       socket.to(user.room.id).emit('leave_room', user.room.users);
     }
   });

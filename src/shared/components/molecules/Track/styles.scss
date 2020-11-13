@@ -15,7 +15,6 @@
   background-color: #3386e6;
   border-radius: 10px;
   transition: background-color ease-in 300ms;
-  text-align: left;
   outline: none;
   user-select: none;
   -webkit-tap-highlight-color: transparent;
@@ -39,6 +38,7 @@
     font-size: 1.1em;
     font-style: italic;
     color: white;
+    text-align: right;
     margin-left: 10px;
   }
 }

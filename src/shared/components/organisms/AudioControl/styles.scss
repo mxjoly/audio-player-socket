@@ -36,7 +36,8 @@
   background-color: theme.$background-dark-color;
 
   h4 {
-    flex: 1;
+    text-align: left;
+    flex: 2;
     font-style: italic;
     color: white;
     @media (max-width: 640px) {
