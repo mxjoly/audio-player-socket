@@ -20,7 +20,7 @@ function Track(props: Props) {
       onClick={() => props.onSelect(props.id)}
     >
       <IconContext.Provider value={{ className: 'Track__Icon' }}>
-        <MdQueueMusic />
+        <MdQueueMusic size={30} />
       </IconContext.Provider>
       <div className="Track__Title">{props.title}</div>
     </div>
