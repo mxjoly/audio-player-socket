@@ -33,8 +33,8 @@ The guests could deactivate the synchronization by pressing on the sync button i
 
 ## Link to the web application
 
-https://music-player-sync.herokuapp.com/
+https://audio-player-sync.herokuapp.com/
 
 ## Licence
 
-[MIT.](https://github.com/mxjoly/music-player-sync/blob/master/LICENSE)
+[MIT.](https://github.com/mxjoly/audio-player-sync/blob/master/LICENSE)
