@@ -1,5 +1,5 @@
 {
-  "name": "music-player-sync",
+  "name": "audio-player-socket",
   "version": "0.1.0",
   "private": true,
   "scripts": {

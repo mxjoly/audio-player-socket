@@ -1,4 +1,4 @@
-# 🎵 Music Player Synchronized
+# 🎵 Audio Player Socket
 
 This is a tools to synchronized audio tracks on different devices. This uses [Socket.io](https://socket.io/) to allow the clients to communicate in real-time.
 
@@ -33,8 +33,8 @@ The guests could deactivate the synchronization by pressing on the sync button i
 
 ## Link to the web application
 
-https://audio-player-sync.herokuapp.com/
+https://audio-player-socket.herokuapp.com/
 
 ## Licence
 
-[MIT.](https://github.com/mxjoly/audio-player-sync/blob/master/LICENSE)
+[MIT.](https://github.com/mxjoly/audio-player-socket/blob/master/LICENSE)
